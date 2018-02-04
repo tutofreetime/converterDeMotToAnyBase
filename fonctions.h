@@ -12,6 +12,12 @@ typedef struct
     int tailDeTaille;
 }BinaireS;
 
+/*
+ENTREE : BinairePointeur
+SORTIE : Rien
+Pré-condition : Parametre doit être valide svp
+*/
+
 void AfficherBits(BinaireP bits)
 {
     int i,j;
@@ -26,8 +32,25 @@ void AfficherBits(BinaireP bits)
     }
     printf("\n");
 }
+/*
+ENTREE : BinairePointeur
+SORTIE : Rien
+Pré-condition : taille de BinairePoiteur >0
+*/
+void libererMalloc(BinaireP bits)
+{
+    int i;
+    for(i =0; i < bits.tailDeTaille; i++)
+        free(bits.bin[i]);
+    free(bits.bin);
+    free(bits.taille);
+}
 
-
+/*
+ENTREE : une chaîne de caractère(mot),une base
+SORTIE : BinairePoiteurs
+Pré-condition : rien
+*/
 BinaireP converterP(char mot[], int base)
 {
     int i=0,j=0;

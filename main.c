@@ -14,6 +14,7 @@ int main()
     printf("Le mot \"%s\" est écrit de cette manière à la base %d : \n",mot,base);
     BinaireP motBit= converterP(mot,base);
     AfficherBits(motBit);
-    
+    libererMalloc(motBit);
+
     return 0;
 }
